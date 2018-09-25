@@ -14,7 +14,7 @@ public class PlateNumberComputations {
 	 * @param plateB
 	 * @return difference
 	 */
-	public static int plateNumberDifference(String plateA, String plateB) {
+	public static int findPlateNumberDifference(String plateA, String plateB) {
 		String newer = null,older = null;
 		int difference = 0;
 		// Determine the newer plate number before counting the difference

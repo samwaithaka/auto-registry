@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition>
+	<h:form>
+	<h:panelGrid columns="3">
+	    <h:outputText value="Enter text that might containt a plate number" />
+	    <h:inputText name="plateNumberText" value="#{actionsController.plateNumberText}" />
+	    <h:commandButton name="submit" value="Submit" action="#{actionsController.extractPlateNo}" />
+	    <h:outputText value="Enter 2 plate numbers separated by comma" />
+	    <h:inputText name="comparisonPlateNumbers" value="#{actionsController.comparisonPlateNumbers}" />
+	    <h:commandButton name="submit" value="Submit" action="#{actionsController.getPlateNumberDifference}" />
+	</h:panelGrid>
+	<h:outputText value="Plate Numbers: " />
+	<ui:repeat value="#{actionsController.plateNumbers}" var="plateNumber">
+	    #{plateNumber}
+	</ui:repeat>
+	<br />
+	<h:outputText value="Vehicle Count: " />
+	<h:outputText value="#{actionsController.vehicleCount - 1}" />
+	</h:form>
+</ui:composition>
+</html>

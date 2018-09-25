@@ -1,5 +1,7 @@
 package com.vehicle.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,15 +18,14 @@ public class StringProcessor {
 	 * @param text
 	 * @return plate
 	 */
-	public static String plateNumberExtractor(String text) {
+	public static List<String> extractPlateNumber(String text) {
 		String patternString = "[Kk][a-zA-Z]{2}[0-9]{3}[a-zA-Z]";
 		Pattern pattern = Pattern.compile(patternString);
 		Matcher matcher = pattern.matcher(text);
-		String plate = "";
+		List<String> plates = new ArrayList<String>();
 		while (matcher.find()) {
-			//The condition is for separating plates by comma, if more than one
-			plate += (plate == "" ? "" : ",") + matcher.group();
+			plates.add(matcher.group());
 		}
-		return plate;
+		return plates;
 	}
 }
